@@ -4,7 +4,7 @@ import Course from "./course.mjs";
 import Teacher from "./teachers.mjs";
 import LearningPath from "./learningpath.mjs";
 import PlatziClass from "./videos.mjs";
-import { FreeStudent, BasicStudent, ExpertStudent } from "./student.mjs"
+import { FreeStudent, BasicStudent, ExpertStudent, TeacherStudent } from "./student.mjs"
 
 // --------------------------> Course <---------------------------
 
@@ -69,6 +69,7 @@ const juan = new FreeStudent({
     escuelaVgs,
 ],
 });
+juan.publicarComentario('Muy buen ejercicio bro')
 juan.approveCourse(cursoProgBasica)
 juan.approveCourse(cursoDefinitivoHTML)
 const miguelito = new BasicStudent({
@@ -96,7 +97,17 @@ learningPaths: [
 ana.approveCourse(cursoProgBasica)
 ana.approveCourse(cursoPracticoHTML)
 
-
+const Freddy = new TeacherStudent({
+  name: 'Freddy Vega',
+  username: 'freddier',
+  email: 'f@platzi.com',
+  instagram: 'freddiervega',
+  learningPaths: [
+    escuelaData,
+    escuelaVgs,
+  ]
+})
+Freddy.publicarComentario('Me encanto el curso')
 
 // --------------------------> Platzi Clases <--------------------
 

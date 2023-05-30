@@ -1,3 +1,5 @@
+import Commet from "./comment.mjs"
+
 class Student {
   constructor({
     name,
@@ -19,6 +21,15 @@ class Student {
     };
     this.approvedCourses = approvedCourses;
     this.learningPaths = learningPaths;
+  }
+
+  publicarComentario(commetContent) {
+    const commet = new Commet({
+      content: commetContent,
+      studentName: this.name
+    });
+
+    commet.publicar()
   }
 }
 
@@ -61,5 +72,25 @@ export class ExpertStudent extends Student {
     this.approvedCourses.push(newCourse);
     console.log('Felicidades, ' + this.name + ', completaste un curso')
 
+  }
+}
+
+export class TeacherStudent extends Student {
+  constructor(props) {
+    super(props);
+  }
+
+  approvedCourses(newCourse) {
+    this.approvedCourses.push(newCourse)
+  }
+
+  publicarComentario(commetContent) {
+    const commet = new Commet({
+      content: commetContent,
+      studentName: this.name,
+      studentRole: 'profesor'
+    });
+
+    commet.publicar()
   }
 }
